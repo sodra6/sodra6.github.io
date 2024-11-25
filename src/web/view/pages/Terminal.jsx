@@ -1,8 +1,11 @@
+import { FitAddon } from "@xterm/addon-fit";
 import React, { useEffect, useRef, useState } from "react";
 import { useXTerm } from "react-xtermjs";
 
 function Terminal() {
   const { instance, ref } = useXTerm();
+  const fitAddon = new FitAddon();
+
   const input = useRef("");
   const xRef = useRef();
   const yRef = useRef();
@@ -103,7 +106,10 @@ function Terminal() {
   };
 
   useEffect(() => {
+    instance?.loadAddon(fitAddon);
     instance?.open(ref);
+    fitAddon.fit();
+
     instance?.write("\r\n");
     instance?.write(" 안녕하세요! 제 포트폴리오에 방문해주셔서 감사합니다.");
     instance?.write("\r\n");
@@ -148,7 +154,18 @@ function Terminal() {
     });
   }, [instance]);
 
-  return <div style={{ height: "100%" }} options={option} ref={ref} />;
+  return (
+    <div
+      className="terminal-container"
+      style={{
+        height: "100vh",
+        width: "100%",
+        backgroundColor: "black",
+      }}
+      options={option}
+      ref={ref}
+    />
+  );
 }
 
 export default Terminal;
