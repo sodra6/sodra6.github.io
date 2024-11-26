@@ -7,17 +7,8 @@ function Terminal() {
   const fitAddon = new FitAddon();
 
   const input = useRef("");
-  const xRef = useRef();
-  const yRef = useRef();
-  const option = {
-    cursorBlink: true,
-    cursorStyle: "block",
-    convertEol: true,
-    cols: 1000,
-    rows: 100,
-    rendererType: "canvas",
-    fontFamilly: "monospace",
-  };
+  const xRef = useRef(0);
+  const [inputsArr, setInputsArr] = useState([]);
 
   const commandHandler = (input) => {
     console.log(input);
@@ -69,7 +60,7 @@ function Terminal() {
         email: 'sodra6@naver.com',\r\n
         git: 'https://github.com/sodra6',\r\n
         keywords: ['Web Dev', 'Front-end', 'Back-end'],\r\n
-        career : ['Mindone cop', 'Biztech i'],\r\n
+        career : ['Mind-One cop/2021-2023', 'Biztech i/2023-ing'],\r\n
         technologies: {\r\n
             languages: ['Java', 'JavaScript', 'SQL', 'HTML', 'CSS','JSP'],\r\n
             web: [\r\n
@@ -87,7 +78,7 @@ function Terminal() {
             editors: ['VSCode', 'Intellij', 'eclipse'],\r\n
             Education: ['Kyung-in high school', 'Dankook University Bachelor of Public Administration']\r\n
         \r\n
-ygcho $ `;
+sodra6 $ `;
       const intervalId = setInterval(() => {
         if (index === 0)
           instance?.writeln("\r\n\x1b[34m Displaying information...\x1b[0m");
@@ -113,20 +104,25 @@ ygcho $ `;
       "\r\n\x1b[33m 사용할 수 있는 명령어 확인을 위해 '\x1b[1mhelp\x1b[0m\x1b[33m' 를 입력해 주세요.\x1b[0m"
     );
     instance?.write("\r\n");
-    instance?.write(" ygcho $ ");
+    instance?.write("\r\n");
+    instance?.write(" sodra6 $ ");
 
     instance?.onKey((e) => {
       if (e.domEvent.key === "Enter") {
         commandHandler(input.current);
+        setInputsArr(inputsArr.concat(input.current));
         input.current = ""; // 버퍼 초기화
         xRef.current = 0;
         instance?.write("\x1b[0m");
         instance?.write("\r\n");
-        instance.write(" ygcho $ ");
+        instance.write(" sodra6 $ ");
       } else {
         if (e.domEvent.key === "Backspace") {
-          instance?.write("\x1B[1D"); //왼쪽으로 한칸
-          instance?.write("\x1b[P"); //현재 커서만 삭제
+          if (xRef.current > 0) {
+            xRef.current -= 1;
+            instance?.write("\x1B[1D"); //왼쪽으로 한칸
+            instance?.write("\x1b[P"); //현재 커서만 삭제
+          }
         } else if (e.domEvent.key === "Delete") {
           instance?.write("\x1B[1C"); //오른쪽으로 한칸
           instance?.write("\x1B[P"); //현재 커서만 삭제
@@ -135,9 +131,15 @@ ygcho $ `;
         } else if (e.domEvent.key === "ArrowDown") {
           instance?.write("\x1b[B");
         } else if (e.domEvent.key === "ArrowLeft") {
-          instance?.write("\x1b[D");
+          if (xRef.current > 0) {
+            xRef.current -= 1;
+            instance?.write("\x1b[D");
+          }
         } else if (e.domEvent.key === "ArrowRight") {
-          instance?.write("\x1b[C");
+          if (xRef.current < 0) {
+            xRef.current += 1;
+            instance?.write("\x1b[C");
+          }
         } else {
           instance?.write(e.key);
           input.current += e.key;
@@ -158,7 +160,6 @@ ygcho $ `;
         width: "100%",
         backgroundColor: "black",
       }}
-      options={option}
       ref={ref}
     />
   );
