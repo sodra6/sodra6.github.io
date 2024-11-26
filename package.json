@@ -1,7 +1,7 @@
 {
   "name": "webfront",
   "version": "0.1.0",
-  "homepage": "https://sodra6.github.io/sodra6.github.io.git",
+  "homepage": "https://sodra6.github.io",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
