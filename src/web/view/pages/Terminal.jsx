@@ -65,33 +65,29 @@ function Terminal() {
     myInfo: (delay) => {
       let index = 0;
       const text = `
-      {
-        name: 'yong gyu' | 'Cho',
-        email: 'sodra6@naver.com',
-        git: 'https://github.com/sodra6',
-        keywords: ['Web Dev', 'Front-end', 'Back-end'],
-        technologies: {
-            languages: ['Java', 'JavaScript', 'SQL', 'HTML', 'CSS','JSP'],
-            web: [
-                'React', 'jQuery',
-                'Axios', 'Bootstrap', 'Materialize CSS',
-                'Spring MVC',
-            ],
-            databases: [
-                'PostgreSQL', 'MariaDB/MySQL'
-                'ORACLE', 'MySQL', 'MS-SQL',
-            ],
-            devOps: ['Git', 'Gitlab CI', 'SVN'],
-            clouds: ['AWS'],
-            operatingSystems: ['Linux', 'Unix', 'Windows'],
-            editors: ['VSCode', 'Intellij', 'eclipse'],
-            Education: [
-                'Kyung-in high school',
-                'Dankook University Bachelor of Public Administration'
-            ]
-        }
-
-       ygcho $ `;
+        name: 'yong gyu' | 'Cho',\r\n
+        email: 'sodra6@naver.com',\r\n
+        git: 'https://github.com/sodra6',\r\n
+        keywords: ['Web Dev', 'Front-end', 'Back-end'],\r\n
+        career : ['Mindone cop', 'Biztech i'],\r\n
+        technologies: {\r\n
+            languages: ['Java', 'JavaScript', 'SQL', 'HTML', 'CSS','JSP'],\r\n
+            web: [\r\n
+                'React', 'jQuery',\r\n
+                'Axios', 'Bootstrap', 'Materialize CSS',\r\n
+                'Spring MVC',\r\n
+                ],\r\n
+            databases: [\r\n
+                'PostgreSQL', 'MariaDB/MySQL'\r\n
+                'ORACLE', 'MySQL', 'MS-SQL',\r\n
+                ],\r\n
+            devOps: ['Git', 'Gitlab CI', 'SVN'],\r\n
+            clouds: ['AWS'],\r\n
+            operatingSystems: ['Linux', 'Unix', 'Windows'],\r\n
+            editors: ['VSCode', 'Intellij', 'eclipse'],\r\n
+            Education: ['Kyung-in high school', 'Dankook University Bachelor of Public Administration']\r\n
+        \r\n
+ygcho $ `;
       const intervalId = setInterval(() => {
         if (index === 0)
           instance?.writeln("\r\n\x1b[34m Displaying information...\x1b[0m");
@@ -111,7 +107,7 @@ function Terminal() {
     fitAddon.fit();
 
     instance?.write("\r\n");
-    instance?.write(" 안녕하세요! 제 포트폴리오에 방문해주셔서 감사합니다.");
+    instance?.write(" 안녕하세요! 방문해주셔서 감사합니다.");
     instance?.write("\r\n");
     instance?.write(
       "\r\n\x1b[33m 사용할 수 있는 명령어 확인을 위해 '\x1b[1mhelp\x1b[0m\x1b[33m' 를 입력해 주세요.\x1b[0m"
