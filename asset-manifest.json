@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/sodra6.github.io.git/static/css/main.9b9a1d16.css",
+    "main.js": "/sodra6.github.io.git/static/js/main.820584b3.js",
+    "static/js/453.aa8eac38.chunk.js": "/sodra6.github.io.git/static/js/453.aa8eac38.chunk.js",
+    "static/media/logo.svg": "/sodra6.github.io.git/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/sodra6.github.io.git/index.html",
+    "main.9b9a1d16.css.map": "/sodra6.github.io.git/static/css/main.9b9a1d16.css.map",
+    "main.820584b3.js.map": "/sodra6.github.io.git/static/js/main.820584b3.js.map",
+    "453.aa8eac38.chunk.js.map": "/sodra6.github.io.git/static/js/453.aa8eac38.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b9a1d16.css",
+    "static/js/main.820584b3.js"
+  ]
+}
