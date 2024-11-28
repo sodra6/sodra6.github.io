@@ -1,5 +1,5 @@
 import { FitAddon } from "@xterm/addon-fit";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useXTerm } from "react-xtermjs";
 
 function Terminal() {
