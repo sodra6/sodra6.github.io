@@ -1,0 +1,36 @@
+name: sodra6.github.io CI/CD 
+
+on :
+  push :
+    branches :
+      - master
+
+jobs :
+  deploy :
+    runs-on : ubuntu-latest
+
+    steps :
+      # 1. 리포지토리 체크아웃
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      # 2. Node.js 설정
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+
+      # 3. npm 설치
+      - name: Install dependencies
+        run: npm install
+
+      # 4. 빌드
+      - name: Build the project
+        run: npm run build
+
+      # 5. 배포
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build  # 빌드된 폴더 위치
